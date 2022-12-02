@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
     wrapper: {
         alignItems: 'center',
         flexDirection: 'row',
-        width: '70%',
+        width: '65%',
         // flexGrow: 0.6,
         marginRight: 17
     },

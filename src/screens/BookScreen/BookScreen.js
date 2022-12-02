@@ -42,15 +42,10 @@ const BookScreen = ({ navigation, route }) => {
     useEffect(() => {
         navigation.setOptions({
             headerStyle: {
-                height: 60,
                 backgroundColor:'#82278A',
-                shadowColor: 'transparent'
             },
             headerTitleStyle: {
                 fontSize: 14,
-                paddingLeft: 0,
-                paddingRight: 10,
-                color: '#ffffff',
             }
         });
         setPlayer(null);

@@ -5,18 +5,16 @@ import AutorizationService from '../../services/AutorizationService';
 import RestService from '../../services/RestService';
 import ss from '../../styles/index';
 import Book from '../../components/Books/Book';
+import screenOptions from '../../navigate/screenOptions';
 
 const authService = new AutorizationService();
 const restService = new RestService();
 
 const Favorite = ({ navigation, route }) => {
-    console.log('Favorite', route);
     const { userId, token, userFavorites } = useSelector(state => state);
-    // const state = useSelector(state => state);
     const [ favorite, toggleFavorite ] = useState(true);
     const [ history, toggleHistory ] = useState(false);
     const [ data, setData ] = useState([]);
-    // console.log(state);
 
     useEffect(() => {
         if (favorite) {

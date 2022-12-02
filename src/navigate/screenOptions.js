@@ -2,23 +2,25 @@ import React from 'react';
 import UserBtn from '../components/UserBtn';
 
 const screenOptions = {
-    headerForceInset: {
-        top: 'never',
-        bottom: 'never'
+    contentStyle: {
+        backgroundColor: '#381466',
+    },
+    headerStyle: {
+        backgroundColor: '#381466',
     },
     headerBackTitleVisible: false,
-    headerHideShadow: true,
-    headerStyle: {
-        backgroundColor:'#381466',
-    },
-    // headerBackground: Component,
+    // headerBackground: HeaderBg,
     headerShadowVisible: false,
     headerTitleStyle: {
         fontSize: 20,
         color: '#ffffff',
     },
+    headerLargeTitleStyle: {
+        fontSize: 20,
+        color: '#ffffff',
+    },
     cardStyle: {
-        backgroundColor: 'transparent'
+        // backgroundColor: '#381466'
     },
     headerTitleAlign: 'left',
     headerTintColor: '#ffffff',

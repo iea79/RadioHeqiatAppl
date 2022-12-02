@@ -23,19 +23,20 @@ LogBox.ignoreLogs([
 const authService = new AutorizationService();
 const Tab = createBottomTabNavigator();
 // const STYLES = ['default', 'dark-content', 'light-content'];
+// console.log('DefaultTheme ===', DefaultTheme);
 const MyTheme = {
-  ...DefaultTheme,
-  dark: true,
-  colors: {
-    ...DefaultTheme.colors,
-    background: '#381466',
-    card: '#381466',
-    primary: '#381466',
-    text: '#ffffff'
-  },
+    ...DefaultTheme,
+    dark: true,
+    colors: {
+        ...DefaultTheme.colors,
+        background: '#381466',
+        card: '#381466',
+        primary: '#381466',
+        text: '#ffffff'
+    },
 };
 
-console.log('MyTheme', MyTheme);
+// console.log('MyTheme', MyTheme);
 
 const App = () => {
     const dispatch = useDispatch();
@@ -164,6 +165,7 @@ const App = () => {
                                 <Tab.Screen
                                     name="CatalogScreen"
                                     component={CatalogStackScreen}
+                                    options={{ title: 'կատալոգ' }}
                                     listeners={() => ({
                                         tabPress: () => {
                                             navigationRef.navigate('CatalogScreen', {screen: 'Categories'});

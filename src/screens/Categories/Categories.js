@@ -6,7 +6,7 @@ import ss from '../../styles';
 
 const restService = new RestService();
 
-const Categories = ({ navigation }) => {
+const Categories = ({ navigation, route }) => {
     console.log('Categories');
     // console.log(navigation);
     const [ category, setCategory ] = useState([]);

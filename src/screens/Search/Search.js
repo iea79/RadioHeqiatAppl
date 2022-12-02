@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, TextInput, StyleSheet, Pressable, Image, FlatList, ActivityIndicator } from 'react-native';
+import { View, TextInput, StyleSheet, Pressable,
+    Image, FlatList, ActivityIndicator, StatusBar
+} from 'react-native';
 import ss from '../../styles/index';
 import RestService from '../../services/RestService';
 import Book from '../../components/Books/Book';
+import screenOptions from '../../navigate/screenOptions';
+
 
 const restService = new RestService();
 

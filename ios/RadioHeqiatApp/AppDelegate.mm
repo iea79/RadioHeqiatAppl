@@ -44,10 +44,13 @@
   UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"RadioHeqiatApp", nil);
 
   if (@available(iOS 13.0, *)) {
-    rootView.backgroundColor = [UIColor systemBackgroundColor];
-  } else {
-    rootView.backgroundColor = [UIColor whiteColor];
+//    rootView.backgroundColor = [UIColor systemBackgroundColor];
+//  } else {
+//    rootView.backgroundColor = [UIColor whiteColor];
+    rootView.backgroundColor = [UIColor colorWithRed:0.22 green:0.08 blue:0.40 alpha:1.00];
   }
+  
+  
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];

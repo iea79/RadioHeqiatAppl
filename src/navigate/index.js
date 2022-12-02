@@ -1,5 +1,5 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../screens/Home';
 import Welcome from '../screens/Welcome';
 import Favorite from '../screens/Favorite';
@@ -10,9 +10,28 @@ import Registration from '../screens/auth/Registration';
 import Categories from '../screens/Categories';
 import Category from '../screens/Category';
 import BookScreen from '../screens/BookScreen';
-import screenOptions from './screenOptions';
+import UserBtn from '../components/UserBtn';
 
-const HomeStack = createNativeStackNavigator();
+const screenOptions = {
+    headerShadowVisible: false,
+    headerBackTitleVisible: false,
+    headerTitleAlign: 'left',
+    headerStyle: {
+        backgroundColor: '#381466',
+    },
+    headerTintColor: '#ffffff',
+    headerTitleStyle: {
+        fontSize: 20,
+        color: '#ffffff',
+    },
+    headerLargeTitleStyle: {
+        fontSize: 20,
+        color: '#ffffff',
+    },
+    headerRight: () => <UserBtn />
+};
+
+const HomeStack = createStackNavigator();
 
 const HomeStackScreen = () => {
     return (
@@ -26,7 +45,7 @@ const HomeStackScreen = () => {
                 name="Profile"
                 component={ Profile }
                 options={{
-                    presentation: "modal",
+                    // presentation: "modal",
                     title: 'Անձնագիր',
                     headerLeft: null }}
                 />
@@ -34,22 +53,7 @@ const HomeStackScreen = () => {
     );
 };
 
-const WelcomStack = createNativeStackNavigator();
-
-const WelcomStackScreen = () => {
-    return (
-        <WelcomStack.Navigator
-            initialRouteName='Welcome'
-            screenOptions={screenOptions}
-        >
-            <WelcomStack.Screen name="Welcome" component={ Welcome }  options={{
-                    headerShown: false
-                }} />
-        </WelcomStack.Navigator>
-    );
-};
-
-const AuthStack = createNativeStackNavigator();
+const AuthStack = createStackNavigator();
 
 const AuthStackScreen = () => {
     return (
@@ -68,7 +72,7 @@ const AuthStackScreen = () => {
     );
 };
 
-const FavoriteStack = createNativeStackNavigator();
+const FavoriteStack = createStackNavigator();
 
 const FavoriteStackScreen = () => {
     return (
@@ -80,7 +84,7 @@ const FavoriteStackScreen = () => {
     );
 };
 
-const CatalogStack = createNativeStackNavigator();
+const CatalogStack = createStackNavigator();
 
 const CatalogStackScreen = () => {
     return (
@@ -103,7 +107,7 @@ const CatalogStackScreen = () => {
     );
 };
 
-const SearchStack = createNativeStackNavigator();
+const SearchStack = createStackNavigator();
 
 const SearchStackScreen = () => {
     return (
@@ -112,6 +116,22 @@ const SearchStackScreen = () => {
             screenOptions={screenOptions} >
             <SearchStack.Screen name="Search" component={ Search }  options={{ title: 'Որոնում' }} />
         </SearchStack.Navigator>
+    );
+};
+
+
+const WelcomStack = createStackNavigator();
+
+const WelcomStackScreen = () => {
+    return (
+        <WelcomStack.Navigator
+            initialRouteName='Welcome'
+            screenOptions={screenOptions}
+        >
+            <WelcomStack.Screen name="Welcome" component={ Welcome }  options={{
+                    headerShown: false
+                }} />
+        </WelcomStack.Navigator>
     );
 };
 

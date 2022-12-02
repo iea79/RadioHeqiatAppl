@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#8F71C2',
         fontWeight: 'bold',
+        marginRight: 15
     },
     wrapper: {
         flex: 1,

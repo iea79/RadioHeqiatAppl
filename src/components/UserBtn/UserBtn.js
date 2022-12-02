@@ -35,7 +35,7 @@ const UserBtn = () => {
     return (
         <TouchableOpacity
             onPress={onPress}
-            style={{ width: 40, height: 40 }}
+            style={{ width: 40, height: 40, marginRight: 15 }}
         >
             <SvgXml style={{ width: '100%', height: '100%' }} xml={ userIcon } />
         </TouchableOpacity>

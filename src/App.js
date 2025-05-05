@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {connect, useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {LogBox, Image, StatusBar} from 'react-native';
 import {
@@ -28,6 +28,7 @@ import {
   WelcomStackScreen,
 } from './navigate';
 import {navigationRef} from './navigate/RootNavigation';
+import SplashScreen from 'react-native-splash-screen';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
@@ -55,9 +56,8 @@ const MyTheme = {
 
 // console.log('MyTheme', MyTheme);
 
-const App = () => {
+const App = ({live, token, liveLoader}) => {
   const dispatch = useDispatch();
-  const {live, token, liveLoader} = useSelector(state => state);
   // const [ loaded, setLoaded ] = useState(liveLoader);
 
   if (live === undefined) {
@@ -67,6 +67,10 @@ const App = () => {
     dispatch(getToken(false));
     dispatch(setFavorites([]));
   }
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   useEffect(() => {
     if (!liveLoader) {
       checkToken();
@@ -224,4 +228,10 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = state => ({
+  live: state.live,
+  token: state.token,
+  liveLoader: state.liveLoader,
+});
+
+export default connect(mapStateToProps)(App);

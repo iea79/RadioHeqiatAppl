@@ -1,7 +1,7 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import { SvgXml } from 'react-native-svg';
-import { useSelector } from 'react-redux';
+import {TouchableOpacity} from 'react-native';
+import {SvgXml} from 'react-native-svg';
+import {connect} from 'react-redux';
 import * as RootNavigation from '../../navigate/RootNavigation';
 
 const userIcon = `<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,22 +24,23 @@ const userIcon = `<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xm
     </defs>
 </svg>`;
 
-const UserBtn = () => {
-    const { token } = useSelector(state => state);
+const UserBtn = ({token}) => {
+  const onPress = () => RootNavigation.navigate('Profile');
 
-    const onPress = () => RootNavigation.navigate('Profile');
+  if (!token) {
+    return null;
+  }
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      style={{width: 40, height: 40, marginRight: 15}}>
+      <SvgXml style={{width: '100%', height: '100%'}} xml={userIcon} />
+    </TouchableOpacity>
+  );
+};
 
-    if (!token) {
-        return null;
-    }
-    return (
-        <TouchableOpacity
-            onPress={onPress}
-            style={{ width: 40, height: 40, marginRight: 15 }}
-        >
-            <SvgXml style={{ width: '100%', height: '100%' }} xml={ userIcon } />
-        </TouchableOpacity>
-    )
-}
+const mapStateToProps = state => ({
+  token: state.token,
+});
 
-export default UserBtn;
+export default connect(mapStateToProps)(UserBtn);
